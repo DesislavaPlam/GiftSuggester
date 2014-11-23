@@ -108,5 +108,25 @@ namespace GiftSuggester.Pages
         }
 
         #endregion
+
+        private void GoToFriendsPage(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FriendsPage));
+        }
+
+        private void GoToGiftsPage(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GiftsPage));
+        }
+
+        private void GoToAddFriend(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddFriendPage));
+        }
+
+        private void GoToAddGift(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddGiftPage));
+        }
     }
 }

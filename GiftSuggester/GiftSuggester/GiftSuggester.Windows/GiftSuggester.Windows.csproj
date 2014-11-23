@@ -112,11 +112,20 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddFriendPage.xaml.cs">
+      <DependentUpon>AddFriendPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddGiftPage.xaml.cs">
+      <DependentUpon>AddGiftPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EventsPage.xaml.cs">
       <DependentUpon>EventsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\FriendsPage.xaml.cs">
       <DependentUpon>FriendsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GiftsPage.xaml.cs">
+      <DependentUpon>GiftsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,11 +144,23 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Pages\AddFriendPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddGiftPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EventsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\FriendsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GiftsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

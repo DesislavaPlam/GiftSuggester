@@ -21,7 +21,7 @@ namespace GiftSuggester.Pages
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class EventsPage : Page
+    public sealed partial class GiftsPage : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -45,7 +45,7 @@ namespace GiftSuggester.Pages
         }
 
 
-        public EventsPage()
+        public GiftsPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -102,25 +102,5 @@ namespace GiftSuggester.Pages
         }
 
         #endregion
-
-        private void GoToFriendsPage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(FriendsPage));
-        }
-
-        private void GoToGiftsPage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(GiftsPage));
-        }
-
-        private void GoToAddFriend(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(AddFriendPage));
-        }
-
-        private void GoToAddGift(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(AddGiftPage));
-        }
     }
 }
