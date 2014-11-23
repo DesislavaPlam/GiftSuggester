@@ -4,9 +4,11 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
-        
+
+    using GiftSuggester.Data;
+
     [Table("Friends")]
-    public class Friend
+    public class Friend : IBaseEntity
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -15,10 +17,5 @@
         public string Name { get; set; }
 
         public string Avatar { get; set; }
-
-        public ICollection<Gift> Gifts { get; set; }
-
-        public ICollection<Event> Events { get; set; }
-
     }
 }

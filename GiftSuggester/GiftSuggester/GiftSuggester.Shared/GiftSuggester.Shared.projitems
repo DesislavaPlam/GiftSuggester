@@ -15,15 +15,24 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\AppDbConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IBaseEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IDbConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Repository\IRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Repository\Repository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\UnitOfWork\AppData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\UnitOfWork\IAppData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\EventType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Friend.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FriendGift.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Gift.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FriendsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">

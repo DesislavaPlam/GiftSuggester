@@ -5,8 +5,10 @@
     using System.Collections.Generic;
     using System.Text;
 
+    using GiftSuggester.Data;
+
     [Table("Events")]
-    public class Event
+    public class Event : IBaseEntity
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -18,7 +20,5 @@
         public DateTime Date { get; set; }
 
         public int FriendId { get; set; }
-
-        public Friend Friend { get; set; }
     }
 }

@@ -9,6 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Button Content="Add"
+                Click="Button_Click"/>
+        <Button Content="Show it!"
+                Click="Button_Click_1"
+                Margin="150 0 0 0 "/>
+        <TextBlock Name="Text"
+                   Width="400"
+                   Height="100"
+                   FontSize="24"
+                   Margin="0 100 0 0"/>
     </Grid>
 </Page>
