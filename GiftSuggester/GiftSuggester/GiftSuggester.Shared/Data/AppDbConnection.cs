@@ -17,6 +17,7 @@
             : base(dbPath)
         {
             this.dbConnection = new SQLiteAsyncConnection(dbPath);
+            this.InitializeDatabase();
         }
 
         public async Task InitializeDatabase()

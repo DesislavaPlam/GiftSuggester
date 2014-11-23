@@ -15,6 +15,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\AppDbConnection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IBaseEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDbConnection.cs" />
@@ -22,9 +26,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Repository\Repository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\UnitOfWork\AppData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\UnitOfWork\IAppData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\EventType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Friend.cs" />
@@ -32,12 +33,28 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Gift.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EventsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EventViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FriendsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\EventsPageContent.xaml.cs">
+      <DependentUpon>EventsPageContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FriendsPageContent.xaml.cs">
+      <DependentUpon>FriendsPageContent.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\EventsPageContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\FriendsPageContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\default-avatar.png" />
   </ItemGroup>
 </Project>

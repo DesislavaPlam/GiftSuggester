@@ -5,13 +5,22 @@ using GiftSuggester.Models;
 
 namespace GiftSuggester.ViewModels
 {
-    public class FriendsViewModel
+    public class FriendsViewModel : ViewModelBase
     {
+        private const string DefaultDisplayName = "No name";
         private List<Friend> data;
 
-        public FriendsViewModel()
+        public String DisplayName { get; set; }
+
+        public FriendsViewModel() :
+            this(DefaultDisplayName)
         {
-            data = new MockDB.MockFriendsData().Friends;
+
+        }
+
+        public FriendsViewModel(string name)
+        {
+            this.DisplayName = name;
         }
     }
 }
