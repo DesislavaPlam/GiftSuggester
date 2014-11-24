@@ -108,26 +108,19 @@
 
                 this.data.Friends.Add(newFriend);
 
-                //this.data.Friends.All().ContinueWith(t =>
-                //{
-                //    var newFriendId = t.Result.Last().Id;
+                this.data.Friends.All().ContinueWith(t =>
+                {
+                    var newFriendId = t.Result.Last().Id;
 
-                //    var newEvent = new Event
-                //    {
-                //        Type = EventType.BirthDay,
-                //        Date = this.Event.Date,
-                //        FriendId = newFriend.Id
-                //    };
-                //    this.data.Events.Add(newEvent);
-                //});
-
-                var newEvent = new Event
+                    var newEvent = new Event
                     {
                         Type = EventType.BirthDay,
                         Date = this.Event.Date,
-                        FriendId = 5
+                        FriendId = newFriend.Id
                     };
-                this.data.Events.Add(newEvent);
+                    this.data.Events.Add(newEvent);
+                });
+
             }
         }
 

@@ -83,7 +83,7 @@
         {
             var events = (await this.data.Events.All())
                 .AsQueryable()
-                .Where(ev => ev.Date > DateTime.Now)
+                //.Where(ev => ev.Date > DateTime.Now)
                 .OrderBy(ev => ev.Date)
                 .Select(EventViewModel.FromEvent)
                 .AsEnumerable();

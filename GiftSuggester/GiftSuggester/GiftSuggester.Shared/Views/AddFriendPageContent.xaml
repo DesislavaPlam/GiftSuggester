@@ -25,6 +25,7 @@
                  Text="{Binding Friend.Name, Mode=TwoWay}"/>
         <DatePicker Header="Event Date"
                     Date="{Binding Event.Date,
+                    Converter={StaticResource DateTimeConverter},
                     Mode=TwoWay}"
                     Margin="0 50 0 0"/>
         <Button Content="Add" Command="{Binding Save, Mode=TwoWay}"/>

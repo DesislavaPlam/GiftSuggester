@@ -9,14 +9,12 @@
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            DateTime result = (DateTime)value;
-            return result;
+            return new NotImplementedException();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            DateTime result = (DateTime)value;
-            return result;
+            return DateTime.Parse(value.ToString());
         }
     }
 }

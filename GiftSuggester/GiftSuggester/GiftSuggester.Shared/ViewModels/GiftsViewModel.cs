@@ -19,14 +19,19 @@
         private IAppData data;
         private ICommand refreshCommand;
         private ICommand addDataCommand;
+        private ICommand saveCommand;
 
         private ObservableCollection<GiftViewModel> gifts;
 
         public GiftsViewModel()
         {
             this.data = new AppData(new AppDbConnection());
+            this.Gift = new GiftViewModel();
+
             this.LoadGifts();
         }
+
+        public GiftViewModel Gift { get; set; }
 
         public IEnumerable<GiftViewModel> Gifts
         {
@@ -99,6 +104,33 @@
         {
             this.data.Gifts.Add(new Gift { Name = "Book", Image = "Assets/gift.png", Address = "Sofia" });
             this.data.Gifts.Add(new Gift { Name = "Barbaron", Image = "Assets/default-avatar.png", Address = "http://barbaron.bg/" });
+        }
+
+        public ICommand Save
+        {
+            get
+            {
+                if (this.saveCommand == null)
+                {
+                    this.saveCommand = new RelayCommand(this.PerformSave);
+                }
+                return this.saveCommand;
+            }
+        }
+
+        private void PerformSave()
+        {
+            if (!string.IsNullOrWhiteSpace(this.Gift.Name))
+            {
+                var newGift = new Gift
+                {
+                    Name = this.Gift.Name,
+                    Address = this.Gift.Address
+                };
+
+                this.data.Gifts.Add(newGift);
+
+            }
         }
     }
 }

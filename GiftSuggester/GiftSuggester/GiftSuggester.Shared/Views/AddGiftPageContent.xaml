@@ -10,6 +10,27 @@
     d:DesignWidth="400">
     
     <Grid>
-
+        <TextBlock Text="Name: "
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="26"/>
+        <TextBox PlaceholderText="Name"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="125 0 0 0"
+                 Width="200"
+                 Text="{Binding Gift.Name, Mode=TwoWay}"/>
+        <TextBlock Text="Address: "
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="26"
+                   Margin="0 50 0 0"/>
+        <TextBox PlaceholderText="Name"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="125 50 0 0"
+                 Width="200"
+                 Text="{Binding Gift.Address, Mode=TwoWay}"/>
+        <Button Content="Add" Command="{Binding Save, Mode=TwoWay}"/>
     </Grid>
 </UserControl>
