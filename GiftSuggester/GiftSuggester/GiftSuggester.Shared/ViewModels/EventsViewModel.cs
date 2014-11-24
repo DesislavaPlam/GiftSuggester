@@ -6,8 +6,10 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Input;
 
     using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
 
     using GiftSuggester.Data;
     using GiftSuggester.Data.UnitOfWork;
@@ -15,14 +17,15 @@
 
     public class EventsViewModel : ViewModelBase
     {
-        private readonly AppDbConnection dbConnection = new AppDbConnection();
         private IAppData data;
+        private ICommand refreshCommand;
+        private ICommand addDataCommand;
 
         private ObservableCollection<EventViewModel> events;
 
         public EventsViewModel()
         {
-            this.data = new AppData(dbConnection);
+            this.data = new AppData(new AppDbConnection());
             this.LoadEvents();
         }
 
@@ -52,21 +55,50 @@
             }
         }
 
+        public ICommand Refresh
+        {
+            get
+            {
+                if (this.refreshCommand == null)
+                {
+                    this.refreshCommand = new RelayCommand(this.PerformRefresh);
+                }
+                return this.refreshCommand;
+            }
+        }
+
+        public ICommand AddData
+        {
+            get
+            {
+                if (this.addDataCommand == null)
+                {
+                    this.addDataCommand = new RelayCommand(this.PerformAddData);
+                }
+                return this.addDataCommand;
+            }
+        }
+
         public async Task LoadEvents()
         {
-            var events = (await this.data.Events.All()).AsQueryable().Select(EventViewModel.FromEvent).AsEnumerable();
+            var events = (await this.data.Events.All())
+                .AsQueryable()
+                .Where(ev => ev.Date > DateTime.Now)
+                .OrderBy(ev => ev.Date)
+                .Select(EventViewModel.FromEvent)
+                .AsEnumerable();
 
             this.Events = events;
         }
 
-        public void AddEvents()
+        private void AddEvents()
         {
             List<Event> events = new List<Event>()
             {
                 new Event
                 {
                     Type = EventType.Christmass,
-                    Date = DateTime.Now,
+                    Date = DateTime.Now.AddDays(31),
                     FriendId = 2
                 },
                 new Event
@@ -78,7 +110,7 @@
                 new Event
                 {
                     Type = EventType.NameDay,
-                    Date = DateTime.Now.AddHours(-3),
+                    Date = DateTime.Now.AddDays(3),
                     FriendId = 1
                 }
             };
@@ -86,6 +118,16 @@
             this.data.Events.Add(events[0]);
             this.data.Events.Add(events[1]);
             this.data.Events.Add(events[2]);
+        }
+
+        private void PerformRefresh()
+        {
+            this.LoadEvents();
+        }
+
+        private void PerformAddData()
+        {
+            this.AddEvents();
         }
     }
 }

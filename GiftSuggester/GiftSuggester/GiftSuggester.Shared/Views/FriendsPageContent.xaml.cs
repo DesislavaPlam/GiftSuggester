@@ -26,15 +26,5 @@ namespace GiftSuggester.Views
 
             this.DataContext = new FriendsViewModel();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as FriendsViewModel).AddFriends();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as FriendsViewModel).LoadFriends();
-        }
     }
 }

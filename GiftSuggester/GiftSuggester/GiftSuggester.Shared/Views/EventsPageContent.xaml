@@ -14,15 +14,20 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Type, Mode=TwoWay}" FontSize="26"/>
-                        <TextBlock Text="{Binding FriendName, Mode=TwoWay}" FontSize="21"/>
-                        <TextBlock Text="{Binding Date, Mode=TwoWay}" FontSize="16"/>
+                        <TextBlock Text="{Binding Type, Mode=TwoWay}" 
+                                   FontSize="26"/>
+                        <TextBlock Text="{Binding FriendName, Mode=TwoWay}" 
+                                   FontSize="21"/>
+                        <TextBlock Text="{Binding Date, Mode=TwoWay}" 
+                                   FontSize="16"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Refresh" Click="Button_Click_1"/>
-        <Button Content="Add" Click="Button_Click"/>
+        <Button Content="Refresh" 
+                Command="{Binding Refresh}"/>
+        <Button Content="Add" 
+                Command="{Binding AddData}"/>
     </StackPanel>
     </ScrollViewer>
 </UserControl>

@@ -5,11 +5,28 @@
     xmlns:local="using:GiftSuggester.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:GiftSuggester.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    
+    <UserControl.Resources>
+        <converters:DatePickerConverter x:Key="DateTimeConverter"/>
+    </UserControl.Resources>
     <Grid>
-
+        <TextBlock Text="Name: "
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="26"/>
+        <TextBox PlaceholderText="Name"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="100 0 0 0"
+                 Width="200"
+                 Text="{Binding Friend.Name, Mode=TwoWay}"/>
+        <DatePicker Header="Event Date"
+                    Date="{Binding Event.Date,
+                    Mode=TwoWay}"
+                    Margin="0 50 0 0"/>
+        <Button Content="Add" Command="{Binding Save, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DatePickerConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\AppDbConnection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IBaseEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IDbConnection.cs" />
@@ -37,6 +38,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EventViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FriendsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FriendViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GiftsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GiftViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddFriendPageContent.xaml.cs">
       <DependentUpon>AddFriendPageContent.xaml</DependentUpon>
     </Compile>
@@ -77,5 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\default-avatar.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\gift.png" />
   </ItemGroup>
 </Project>

@@ -15,14 +15,20 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Assets/default-avatar.png" Width="60" Height="60"></Image>
-                            <TextBlock Text="{Binding Name, Mode=TwoWay}" FontSize="26"/>
+                            <Image Source="../Assets/default-avatar.png" 
+                                   Width="60" 
+                                   Height="60"></Image>
+                            <TextBlock Text="{Binding Name, Mode=TwoWay}" 
+                                       FontSize="26" 
+                                       Margin="5"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Content="Refresh" Click="Button_Click_1"/>
-            <Button Content="Add" Click="Button_Click"/>
+            <Button Content="Refresh" 
+                    Command="{Binding Refresh}"/>
+            <Button Content="Add" 
+                    Command="{Binding AddData}"/>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

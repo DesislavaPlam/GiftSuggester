@@ -26,15 +26,5 @@ namespace GiftSuggester.Views
 
             this.DataContext = new EventsViewModel();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as EventsViewModel).AddEvents();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as EventsViewModel).LoadEvents();
-        }
     }
 }

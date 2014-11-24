@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using GiftSuggester.ViewModels;
+
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace GiftSuggester.Views
@@ -22,6 +24,8 @@ namespace GiftSuggester.Views
         public AddFriendPageContent()
         {
             this.InitializeComponent();
+
+            this.DataContext = new FriendsViewModel();
         }
     }
 }
