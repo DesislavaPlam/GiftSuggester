@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiftSuggester.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,18 @@ namespace GiftSuggester.Views
         public FriendsPageContent()
         {
             this.InitializeComponent();
+
+            this.DataContext = new FriendsViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as FriendsViewModel).AddFriends();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as FriendsViewModel).LoadFriends();
         }
     }
 }

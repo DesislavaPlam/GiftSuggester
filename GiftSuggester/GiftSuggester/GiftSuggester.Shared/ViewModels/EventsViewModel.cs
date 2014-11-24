@@ -7,11 +7,13 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using GalaSoft.MvvmLight;
+
     using GiftSuggester.Data;
     using GiftSuggester.Data.UnitOfWork;
     using GiftSuggester.Models;
 
-    public class EventsViewModel
+    public class EventsViewModel : ViewModelBase
     {
         private readonly AppDbConnection dbConnection = new AppDbConnection();
         private IAppData data;
@@ -50,50 +52,40 @@
             }
         }
 
-        public void Add()
-        {
-            this.data.Events.Add(
-                    new Event
-                    {
-                        Type = EventType.Christmass,
-                        Date = DateTime.Now,
-                        FriendId = 1
-                    });
-
-            this.data.Events.Add(
-                    new Event
-                    {
-                        Type = EventType.BirthDay,
-                        Date = DateTime.Now.AddHours(2),
-                        FriendId = 1
-                    });
-
-            this.data.Events.Add(
-                    new Event
-                    {
-                        Type = EventType.NameDay,
-                        Date = DateTime.Now.AddHours(-3),
-                        FriendId = 1
-                    });
-        }
-
         public async Task LoadEvents()
         {
-            var events = (await this.data.Events.All()).AsEnumerable();
+            var events = (await this.data.Events.All()).AsQueryable().Select(EventViewModel.FromEvent).AsEnumerable();
 
-            this.Events = events.AsQueryable().Select(EventViewModel.FromEvent);
+            this.Events = events;
         }
 
-        public string EventName
+        public void AddEvents()
         {
-            get
+            List<Event> events = new List<Event>()
             {
-                if (this.Events.Count() == 0)
+                new Event
                 {
-                    return "No items";
+                    Type = EventType.Christmass,
+                    Date = DateTime.Now,
+                    FriendId = 2
+                },
+                new Event
+                {
+                    Type = EventType.BirthDay,
+                    Date = DateTime.Now.AddHours(2),
+                    FriendId = 1
+                },
+                new Event
+                {
+                    Type = EventType.NameDay,
+                    Date = DateTime.Now.AddHours(-3),
+                    FriendId = 1
                 }
-                return this.Events.FirstOrDefault().Type;
-            }
+            };
+
+            this.data.Events.Add(events[0]);
+            this.data.Events.Add(events[1]);
+            this.data.Events.Add(events[2]);
         }
     }
 }

@@ -8,16 +8,21 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
-    <ListView ItemsSource="{Binding Events, Mode=TwoWay}" >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel>
-                    <TextBlock Text="{Binding Type, Mode=TwoWay}"/>
-                    <TextBlock Text="Friend name"/>
-                    <TextBlock Text="{Binding Date, Mode=TwoWay}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <StackPanel>
+        <ListView ItemsSource="{Binding Events, Mode=TwoWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Type, Mode=TwoWay}" FontSize="26"/>
+                        <TextBlock Text="{Binding FriendName, Mode=TwoWay}" FontSize="21"/>
+                        <TextBlock Text="{Binding Date, Mode=TwoWay}" FontSize="16"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Content="Refresh" Click="Button_Click_1"/>
+        <Button Content="Add" Click="Button_Click"/>
+    </StackPanel>
+    </ScrollViewer>
 </UserControl>

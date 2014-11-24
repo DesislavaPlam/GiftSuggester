@@ -8,17 +8,21 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    
-    <Grid>
-        <!--<ListView ItemsSource="{Binding Friends, Mode=TwoWay}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="Assets/default-avatar.png" Width="60" Height="60"></Image>
-                        <TextBlock Text="{Binding Name, Mode=TwoWay}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-    </Grid>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <StackPanel>
+            <ListView ItemsSource="{Binding Friends, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Assets/default-avatar.png" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding Name, Mode=TwoWay}" FontSize="26"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Content="Refresh" Click="Button_Click_1"/>
+            <Button Content="Add" Click="Button_Click"/>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

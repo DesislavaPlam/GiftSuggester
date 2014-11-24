@@ -35,10 +35,10 @@
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Calendar" Label="Events"/>
-            <AppBarButton Icon="Shop" Label="Gifts"/>
-            <AppBarButton Icon="AddFriend" Label="Add Friend"/>
-            <AppBarButton Icon="Add" Label="Add Gift"/>
+            <AppBarButton Icon="Calendar" Label="Events" Click="GoToEventsPage"/>
+            <AppBarButton Icon="Shop" Label="Gifts" Click="GoToGiftsPage"/>
+            <AppBarButton Icon="AddFriend" Label="Add Friend" Click="GoToAddFriend"/>
+            <AppBarButton Icon="Add" Label="Add Gift" Click="GoToAddGift"/>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

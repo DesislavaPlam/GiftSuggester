@@ -1,17 +1,20 @@
 ﻿namespace GiftSuggester.ViewModels
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq.Expressions;
-    using System.Text;
+    using System.Threading.Tasks;
+
+    using GalaSoft.MvvmLight;
 
     using GiftSuggester.Models;
     using GiftSuggester.Data.UnitOfWork;
     using GiftSuggester.Data;
 
-    public class EventViewModel
+    public class EventViewModel : ViewModelBase
     {
-        private IAppData data;
+        private readonly IAppData data = new AppData(new AppDbConnection());
+
+        private string friendName;
 
         public static Expression<Func<Event, EventViewModel>> FromEvent
         {
@@ -20,22 +23,12 @@
                 return ev => new EventViewModel()
                 {
                     Type = GetType(ev.Type),
-                    Date = ev.Date.ToString(),
-                    // FriendName = this.data.Friends.Find(ev.FriendId).
+                    Date = ev.Date,
+                    FriendId = ev.FriendId,
+                    FriendName = ""
                 };
             }
         }
-
-        public EventViewModel()
-        {
-            this.data = new AppData(new AppDbConnection());
-        }
-
-        public string Type { get; set; }
-
-        public string Date { get; set; }
-
-        public string FriendName { get; set; }
 
         private static string GetType(EventType type)
         {
@@ -54,6 +47,35 @@
                 default:
                     return "Non";
             }
+        }
+
+        public string Type { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public int FriendId { get; set; }
+
+        public string FriendName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.friendName))
+                {
+                    this.GetFriendName(this.FriendId);
+                }
+
+                return this.friendName;
+            }
+            set
+            {
+                this.friendName = value;
+                this.RaisePropertyChanged(() => this.FriendName);
+            }
+        }
+
+        private async Task GetFriendName(int id)
+        {
+            this.FriendName = (await this.data.Friends.Find(id)).Name;
         }
     }
 }
